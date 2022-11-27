@@ -1,0 +1,166 @@
+<html>
+<head>
+    <meta name="viewport" content="with=device-width, initial-scale=1.0">
+    <title>CODE2270 - 2022 BIM Interface</title>
+    <link rel="stylesheet" href="css/newstyle.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,900;1,500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <section class="header">
+        <nav>
+            <a href="new test index.html"><img src="Images/Comp design logo.webp"></a>
+            <div class="text-box1"> 
+                <ul>
+                    <h1>SHAWN TEW</h1>
+                </ul>
+
+            </div>
+        </nav>
+    <div class="text-box2">
+            <h1>CODE2270 - 2022 BIM INTERFACE</h1>
+            <p>Integrated dashboard to visualise and communicate building data through design information management </p>
+    </div>
+    <div class="text-box3">
+        <h2>3D PRINTED HOUSE MODEL VIEWER</h2>
+        <a href="#model"><img src="/Images\newwhite arrow.png" class = "arrowbutton" alt=""></a>
+    </div>
+</section>
+<section id="model">
+
+        <script async src="https://unpkg.com/es-module-shims@1.3.6/dist/es-module-shims.js"></script>
+        
+        <script type="importmap">
+                    {
+                        "imports": {
+                            "three": "https://unpkg.com/three@0.138.3/build/three.module.js"
+                        }
+                    }
+                </script>
+            <script type="module">
+
+        import * as THREE from 'three';
+        import { OrbitControls } from 'https://unpkg.com/three@0.138.3/examples/jsm/controls/OrbitControls.js';
+        import { IFCLoader } from 'https://unpkg.com/three@0.138.3/examples/jsm/loaders/IFCLoader.js';
+
+        let scene, camera, renderer;
+
+        init();
+
+        function init() {
+
+            
+            //Scene
+            scene = new THREE.Scene();
+            scene.background = new THREE.Color( 0xffffff ); 
+
+            //Camera
+            camera = new THREE.PerspectiveCamera( 45, window.innerWidth / window.innerHeight, 1, 10000 );
+            camera.position.z = - 30;
+            camera.position.y = 10;
+            camera.position.x = 30;
+
+            //Lights
+            const directionalLight1 = new THREE.DirectionalLight( 0xffffff, 0.8 );
+            directionalLight1.position.set( 1, 1, 1 );
+            scene.add( directionalLight1 );
+
+            const directionalLight2 = new THREE.DirectionalLight( 0xffffff, 0.8 );
+            directionalLight2.position.set( - 1, 0.5, - 1 );
+            scene.add( directionalLight2 );
+
+            const ambientLight = new THREE.AmbientLight( 0xffffee, 0.25 );
+            scene.add( ambientLight );
+
+            //Setup IFC Loader
+            const ifcLoader = new IFCLoader();
+            ifcLoader.ifcManager.setWasmPath( './model/' );
+            ifcLoader.load( 'model/TEST HOUSE IFC.ifc', function ( model ) {
+
+            scene.add( model.mesh );
+            render();
+
+            } );
+
+            const highlightMaterial = new THREE.MeshPhongMaterial( { color: 0x0000ff, depthTest: false, transparent: true, opacity: 0.1 } );
+
+            function selectObject( event ) {
+
+            if ( event.button != 0 ) return;
+
+            const mouse = new THREE.Vector2();
+            mouse.x = ( event.clientX / window.innerWidth ) * 2 - 1;
+            mouse.y = - ( event.clientY / window.innerHeight ) * 2 + 1;
+
+            const raycaster = new THREE.Raycaster();
+            raycaster.setFromCamera( mouse, camera );
+
+            const intersected = raycaster.intersectObjects( scene.children, false );
+            if ( intersected.length ) {
+
+                const found = intersected[ 0 ];
+                const faceIndex = found.faceIndex;
+                const geometry = found.object.geometry;
+                const id = ifcLoader.ifcManager.getExpressId( geometry, faceIndex );
+
+                const modelID = found.object.modelID;
+                ifcLoader.ifcManager.createSubset( { modelID, ids: [ id ], scene, removePrevious: true, material: highlightMaterial } );
+                const props = ifcLoader.ifcManager.getItemProperties( modelID, id, true );
+                console.log( props );
+                renderer.render( scene, camera );
+
+            }
+
+            }
+
+            window.onpointerdown = selectObject;
+
+            //Renderer
+            renderer = new THREE.WebGLRenderer( { antialias: true	} );
+            renderer.setSize( window.innerWidth, window.innerHeight );
+            renderer.setPixelRatio( window.devicePixelRatio );
+            document.body.appendChild( renderer.domElement );
+
+            //Controls
+            const controls = new OrbitControls( camera, renderer.domElement );
+            controls.addEventListener( 'change', render );
+
+            window.addEventListener( 'resize', onWindowResize );
+
+            render();
+
+        }
+
+        function onWindowResize() {
+
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize( window.innerWidth, window.innerHeight );
+
+            render();
+
+        }
+
+        function render() {
+
+            renderer.render( scene, camera );
+            
+
+        }
+
+</script>
+
+
+<div class="text-box4">
+    <h2 id="arrow">DOCUMENTATION</h2>
+    <a href="#overview"><img src="/Images\newblackarrow.png" class = "arrowbutton2" alt=""></a>
+</div>
+</section>
+<section>
+    <div id="overview">
+    </div>
+
+
+</section>
+    

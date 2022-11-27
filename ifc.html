@@ -47,7 +47,7 @@
     camera.position.x = 20;
 
     //Lights
-    const directionalLight1 = new THREE.DirectionalLight( 0xff0000, 0.8 );
+    const directionalLight1 = new THREE.DirectionalLight( 00000, 0.8 );
     directionalLight1.position.set( 1, 1, 1 );
     scene.add( directionalLight1 );
 
@@ -61,7 +61,7 @@
     //Setup IFC Loader
     const ifcLoader = new IFCLoader();
     ifcLoader.ifcManager.setWasmPath( './model/' );
-    ifcLoader.load( 'model/walltest.ifc', function ( model ) {
+    ifcLoader.load( 'model/TEST HOUSE IFC.ifc', function ( model ) {
 
       scene.add( model.mesh );
       render();

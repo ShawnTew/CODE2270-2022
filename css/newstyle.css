@@ -1,0 +1,165 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+
+}
+.header{
+    min-height: 100vh;
+    width: 100%;
+    background-image: linear-gradient(rgba(4, 9, 30, 0.7),rgba(4, 9, 30, 0.2)),url(/redcentre.png);
+    background-position: center;
+    background-size: cover;
+    position: relative;
+}
+
+nav{
+    display: flex;
+    padding: 2% 6%;
+    justify-content: space-between;
+}
+nav img{
+    width: 300px;
+}
+.nav-links{
+    flex: 1;
+    text-align: right;
+}
+.nav-links ul li{
+    list-style: none;
+    display: inline-block;
+    padding: 8px 12px;
+    position: relative;
+}
+.text-box1{
+    color: #fff;
+    text-decoration: none;
+    font-size: 20px;
+
+}
+.text-box2{
+    width: 90%;
+    color: #fff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    text-align: center;
+    font-size: 30px;
+}
+
+.text-box3{
+    width: 90%;
+    color: rgb(255, 255, 255);
+    position: absolute;
+    top: 95%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    text-align: center;
+    font-size: 150%;
+}
+.arrowbutton{
+    width: 2%;
+}
+#overviewsheet{
+    min-height: 100vh;
+    width: 100%;
+    background-image: url(/overview.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+}
+.text-box4{
+    width: 20%;
+    color: rgb(0, 0, 0);
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    text-align: center;
+    font-size: 150%;
+}
+
+#plansheet{
+    min-height: 100vh;
+    width: 100%;
+    background-image: url(/plan.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+}
+.text-box5{
+    width: 20%;
+    color: rgb(0, 0, 0);
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    text-align: center;
+    font-size: 150%;
+}
+#eastwestelevations{
+    min-height: 100vh;
+    width: 100%;
+    background-image: url(/eastwestelevation.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+}
+.text-box6{
+    width: 20%;
+    color: rgb(0, 0, 0);
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    text-align: center;
+    font-size: 150%;
+}
+
+#northsouthtelevations{
+    min-height: 100vh;
+    width: 100%;
+    background-image: url(/northsouthelevation.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+#CARPORTDETAIL{
+    min-height: 100vh;
+    width: 100%;
+    background-image: url(/carportdetail.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+#sections{
+    min-height: 100vh;
+    width: 100%;
+    background-image: url(/sections.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+#sydanalysis{
+    min-height: 100vh;
+    width: 100%;
+    background-image: url(/sydanalysis.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+}
+.text-box7{
+    width: 20%;
+    color: rgb(0, 0, 0);
+    position: absolute;
+bottom: 10%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    text-align: center;
+    font-size: 150%;
+}
+

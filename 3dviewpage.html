@@ -1,0 +1,95 @@
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="with=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>CODE2270 - 2022 BIM Interface</title>
+    <link rel="stylesheet" href="css/testcss2.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,900;1,500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav>
+        <a href="Finalindex.html"><img src="Images/Comp design logo.webp"></a>
+        <div class="nav-links"> 
+            <ul>
+                <li><a href="/3dviewpage.html">3D VIEWS</a></li>
+                <li><a href="/planpage.html">PLAN</a></li>
+                <li><a href="/sectionpage.html">SECTION</a></li>
+                <li><a href="/Elevationpage.html">ELEVATION</a></li>
+                <li><a href="/analysispage.html">ANALYSIS</a></li>
+                <li><a href="/schedulingpage.html">SCHEDULING</a></li>
+            </ul>
+
+        </div>
+    </nav>
+
+<section>
+    <div id="slideshow-container">
+
+        <div class="mySlides fade">
+          <img src="/Images/3dviewmain.png" style="width:100%">
+          
+        </div>
+        
+        <div class="mySlides fade">
+          <img src="/Images/3d1.png" width="100%"  style="vertical-align:middle">
+
+        </div>
+
+        <div class="mySlides fade">
+            <img src="/Images/3d2.png" width="100%"  style="vertical-align:middle">
+  
+          </div>
+
+          <div class="mySlides fade">
+            <img src="/Images/3d3.png" width="100%"  style="vertical-align:middle">
+  
+          </div>
+
+          <div class="mySlides fade">
+            <img src="/Images/3d4.png" width="100%"  style="vertical-align:middle">
+  
+          </div>
+        
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a> 
+        </div>
+        <br>
+        
+        <div style="text-align:center">
+          <span class="dot" onclick="currentSlide(1)"></span> 
+          <span class="dot" onclick="currentSlide(2)"></span> 
+          <span class="dot" onclick="currentSlide(3)"></span> 
+        </div>
+        
+        <script>
+        var slideIndex = 1;
+        showSlides(slideIndex);
+        
+        function plusSlides(n) {
+          showSlides(slideIndex += n);
+        }
+        
+        function currentSlide(n) {
+          showSlides(slideIndex = n);
+        }
+        
+        function showSlides(n) {
+          var i;
+          var slides = document.getElementsByClassName("mySlides");
+          var dots = document.getElementsByClassName("dot");
+          if (n > slides.length) {slideIndex = 1}    
+          if (n < 1) {slideIndex = slides.length}
+          for (i = 0; i < slides.length; i++) {
+              slides[i].style.display = "none";  
+          }
+          for (i = 0; i < dots.length; i++) {
+              dots[i].className = dots[i].className.replace(" active", "");
+          }
+          slides[slideIndex-1].style.display = "block";  
+          dots[slideIndex-1].className += " active";
+        }
+        </script>
+</section>
