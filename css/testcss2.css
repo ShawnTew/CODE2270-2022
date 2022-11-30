@@ -128,3 +128,24 @@ nav img{
     font-size: 150%;
 }
 
+.myTable { 
+    width: 100%;
+    text-align: left;
+    background-color: rgb(252, 237, 237);
+    border-collapse: collapse; 
+    color: #ec4c4c
+    }
+  .myTable th { 
+    background-color: #ee7575;
+    color: white; 
+    }
+  .myTable td, 
+  .myTable th { 
+    padding: 10px;
+    border: 1px solid #ec4c4c; 
+    }
+
+.htmltabletitle{
+    text-align: center;
+    color: #ec4c4c;
+}
